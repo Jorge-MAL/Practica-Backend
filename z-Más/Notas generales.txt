@@ -1,0 +1,9 @@
+- Conceptos generales:
+    Eureka: se comporta como servidor, cuyo objetivo es registrar y localizar microservicios existentes, informar de su localización, su estado y datos relevantes de cada uno de ellos.
+    Hystrix: para aislar puntos de acceso a sistemas remotos, servicios y otras librerías de terceros, deteniendo fallos en cascada y permitiendo mejorar la resiliencia en sistemas complejos distribuidos donde la probabilidad de fallo es casi inevitable.
+    Feign: para facilitar la integración entre microservicios mediante la creación de clientes HTTP de forma declarativa. Esto significa que, se simplifica tanto la creación de clientes, que el desarrollador simplemente necesita anotar una interfaz para tenerlo
+    Sleuth: permite asignar un identificador global que es compartido por todos los microservicios invocados en la misma transacción, permite exportar los tiempos de respuesta a Zipkin que ofrece un panel web en el que identificar que llamadas se han hecho entre microservicios y cuales han sido sus tiempos de respuesta.
+    AdminServer(Actuator): es una herramienta para la monitorización de nuestras aplicaciones Spring Boot.
+
+
+    Usar critera para lo delos @Query

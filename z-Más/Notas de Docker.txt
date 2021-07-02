@@ -1,0 +1,74 @@
+* Algunos comandos:
+    -- Descargar imagen
+        docker pull nombredelaimagen
+    -- Descargar y correr la imagen
+        docker run nombredelaimagen
+    -- Ver las images descargadas
+        docker images
+    -- Ver los container's que se han creado
+        docker ps -a
+    -- Ver el contenido de un container
+        docker run nombredelcontainer ls
+    -- Abrir la terminal de un container
+        docker run -i -t nombredelcontainer bash
+        docker run -it nombredelcontainer
+    -- Iniciar un container
+        docker start iddelcontainer
+    -- Abrir un container en ejecución
+        docker attach iddelcontainer (puden ser solo las iniciales)
+    -- Detener un container en ejecución
+        docker stop iddelcontainer (puden ser solo las iniciales)
+    -- Dar nombre al container
+        docker run --name micontainerpepito -it nombredelcontainer
+    -- Salir del container sin finalizarlo, estándo en el container
+        Ctr + p + q
+    -- Eliminar images
+        docker rmi -f iddelcontainer
+    -- Eliminar container 
+        docker rm -f iddelcontainer
+    -- Ejecutar docker con un puerto y un jar
+        docker run -it -p 8080:8080 nombredelaimagen
+* Comandos para la practica:
+    - Bajar las images de las BD's
+        docker pull mongo:4.4
+        docker pull mysql:8.0.25
+    - Crear y correr los container's de las BD's
+        docker run -d -it --name mongodb -p 27018:27017 mongo:4.4
+        docker run -d -it --name mysqldb -e MYSQL_ROOT_PASSWORD=123456 -p 3307:3306 mysql:8.0.25 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    - Correr los container's de las BD's
+        docker start mongodb
+        docker start mysqldb
+    - Abrir las consolas de las BD's (estando corriendo) 
+        docker exec -i -t mongodb bash
+        docker exec -i -t mysqldb bash
+    - Crear los jar de los proyectos
+        Estando en la rua de cada proyecto:
+            gradle build
+    - Crear las images de los proyectos
+        docker build -t configservice .
+        docker build -t registryservice .
+        docker build -t adminservice .
+        docker build -t microarchivo .
+        docker build -t micropersona .
+        docker build -t gatewayservice .
+    - Crear los container's de los jar's
+        docker run -it --name configservice -p 8080:8080 --env GIT_USER=Jorge-MAL --env GIT_PASSWORD=**** --env LOCALHOST=192.168.0.11 configservice:latest
+        docker run -it --name registryservice -p 8079:8079 --env LOCALHOST=192.168.0.11 registryservice:latest
+        docker run -it --name adminservice -p 8077:8077 --env LOCALHOST=192.168.0.11 adminservice:latest
+        docker run -it --name microarchivo -p 8082:8082 --env LOCALHOST=192.168.0.11 microarchivo:latest
+        docker run -it --name micropersona -p 8081:8081 --env LOCALHOST=192.168.0.11 micropersona:latest
+        docker run -it --name gatewayservice -p 8078:8078 --env LOCALHOST=192.168.0.11 gatewayservice:latest
+    - Eliminar las images de los jar de los proyectos
+        docker rmi -f configservice
+        docker rmi -f registryservice
+        docker rmi -f microarchivo
+        docker rmi -f micropersona
+        docker rmi -f gatewayservice
+        docker rmi -f adminservice
+    - Eliminar los container's de las images de los proyectos
+        docker rm -f configservice
+        docker rm -f registryservice
+        docker rm -f microarchivo
+        docker rm -f micropersona
+        docker rm -f gatewayservice
+        docker rm -f adminservice

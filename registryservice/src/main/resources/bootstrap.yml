@@ -1,0 +1,10 @@
+server:
+  port: 8079
+spring:
+  application:
+    name: registryservice
+  cloud:
+    config:
+      uri: http://${LOCALHOST}:8080
+      username: root
+      password: s3cr3t

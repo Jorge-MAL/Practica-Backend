@@ -1,0 +1,9 @@
+
+use multimedia
+db.dropDatabase();
+db.archivo.insert({ "_id" : ObjectId("60d4c1fdaba981f736e01d7d"), "data" : "Mi foto", "tipo" : ".jpg" })
+db.archivo.insert({ "_id" : ObjectId("60d4c1fdaba981f736e01d7e"), "data" : "Mi foto", "tipo" : ".jpg" })
+db.archivo.insert({ "_id" : ObjectId("60d4c1fdaba981f736e01d7f"), "data" : "Mi foto", "tipo" : ".jpg" })
+db.archivo.insert({ "_id" : ObjectId("60d4c1fdaba981f736e01d80"), "data" : "Mi foto", "tipo" : ".jpg" })
+db.archivo.insert({ "_id" : ObjectId("60d4c1fdaba981f736e01d81"), "data" : "Mi foto", "tipo" : ".jpg" })
+db.archivo.find();

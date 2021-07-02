@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Jorge-MAL/apragmapractica.git
+          searchPaths: configdata
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
+  security:
+    user:
+      name: root
+      password: s3cr3t

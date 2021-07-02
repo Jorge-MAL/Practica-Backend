@@ -1,0 +1,11 @@
+- Notaciones de Swagger:
+    * En la entity
+        Sobre la clase
+            @ApiModel(description = "Detalles de la ciudad")
+        Sobre cada propiedad
+            @ApiModelProperty(notes = "El identificador único de la ciudad")
+    *En el controller
+        Sobre cada operación
+            @ApiOperation(value = "Lista con todas las personas", notes = "Porpociona una lista con todas las personas", response = persona.class)
+        Antes de cada parametro
+            @ApiParam(value = "Identificador de la persona", required = true) 
